@@ -1,83 +1,83 @@
-body {
-  margin:0;
-  font-family:-apple-system, sans-serif;
-  background: linear-gradient(135deg,#000,#2b0f1a);
-  color:white;
-  text-align:center;
-  overflow:hidden;
+const textDiv = document.getElementById("text");
+
+const lines = [
+`To the most beautiful part of my life 💖`,
+
+`With you, there’s a quiet kind of happiness I never knew I was missing—soft, steady, and deeply real ❤️`,
+
+`Your kindness and strength don’t just light up my world… they’ve changed the way I see life itself ✨`,
+
+`With you, even silence feels complete 💫`,
+
+`Here’s to us—growing together and building a life full of love 🤍`,
+
+`Your love has touched my soul… 😘`,
+
+`कहते हैं प्यार शब्दों में नहीं उतरता… ❤️`,
+
+`ताकि तुम्हें बता सकूं कि तुम मेरे लिए कितनी कीमती हो 💖`,
+
+`तुम सिर्फ मेरी खुशी नहीं हो… तुम मेरा सुकून हो 🌸`,
+
+`तुम्हारे साथ हर सपना थोड़ा और करीब ❤️`,
+
+`मैं तुम्हारे साथ हूँ… आज नहीं, हमेशा 🫂❤️`,
+
+`Tumhe life ki har khushi mile, baccha 😘`,
+
+`I love you… beyond everything 💖`,
+
+`Forever yours, always 💫`
+];
+
+let i = 0;
+
+function showNext(){
+  if(i >= lines.length){
+    createHearts();
+    document.getElementById("album").classList.remove("hidden");
+    return;
+  }
+
+  textDiv.style.opacity = 0;
+
+  setTimeout(()=>{
+    textDiv.innerHTML = lines[i];
+    textDiv.style.opacity = 1;
+
+    if(i === lines.length - 1){
+      textDiv.classList.add("glow");
+    }
+
+    i++;
+    setTimeout(showNext, 3200);
+  },800);
 }
 
-/* center everything */
-.center {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:90%;
-  max-width:400px;
+showNext();
+
+/* hearts */
+function createHearts(){
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.innerHTML = ["❤️","💖","💗","💓","💞"][Math.floor(Math.random()*5)];
+    heart.classList.add("heart");
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.color = ["pink","red","gold","violet"][Math.floor(Math.random()*4)];
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),6000);
+  },300);
 }
 
-/* envelope */
-.envelope {
-  background: rgba(20,20,20,0.9);
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 0 25px rgba(255,192,203,0.2);
-  cursor:pointer;
+/* album viewer */
+function openImg(src){
+  document.getElementById("viewer").classList.remove("hidden");
+  document.getElementById("fullImg").src = src;
 }
 
-/* letter */
-.letter {
-  background: rgba(0,0,0,0.6);
-  padding:20px;
-  border-radius:15px;
-  line-height:1.5;
-}
-
-/* button */
-.btn {
-  margin-top:20px;
-  padding:12px 25px;
-  border:none;
-  border-radius:25px;
-  background: linear-gradient(45deg,#ff4d6d,gold);
-  color:white;
-}
-
-/* hidden */
-.hidden {
-  display:none;
-}
-
-/* memories */
-#memories img {
-  width:100%;
-  border-radius:15px;
-  box-shadow:0 0 20px rgba(255,255,255,0.2);
-}
-
-/* ending */
-#ending h1 {
-  color:gold;
-}
-
-/* buttons */
-.actions {
-  margin-top:20px;
-}
-
-.actions button {
-  margin:10px;
-  padding:10px 20px;
-  border:none;
-  border-radius:20px;
-}
-
-.yes {
-  background: gold;
-}
-
-.no {
-  background: #444;
-  position:relative;
+function closeImg(){
+  document.getElementById("viewer").classList.add("hidden");
 }
