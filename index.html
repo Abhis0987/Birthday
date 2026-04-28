@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baacha ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Envelope -->
+<div id="envelope" class="center envelope">
+  Tap to open 💌
+</div>
+
+<!-- Letter -->
+<div id="letterBox" class="center hidden">
+  <div class="letter">
+    <p id="text"></p>
+  </div>
+  <button class="btn" onclick="startMemories()">Continue ❤️</button>
+</div>
+
+<!-- Memories -->
+<div id="memories" class="center hidden">
+  <img id="slide" src="assets/img1.jpg">
+</div>
+
+<!-- Ending -->
+<div id="ending" class="center hidden">
+  <h1>Baacha ❤️</h1>
+  <p>Will you stay with me forever? 💍</p>
+
+  <div class="actions">
+    <button class="yes">Always ❤️</button>
+    <button class="no" onclick="moveNo()">No 🙈</button>
+  </div>
+</div>
+
+<audio id="music">
+  <source src="assets/music.mp3" type="audio/mp3">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
