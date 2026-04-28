@@ -1,14 +1,33 @@
 body {
   margin:0;
-  background:black;
-  color:white;
+  background: linear-gradient(135deg,#ffe4ec,#ffd6e0,#fff0f5);
+  color:#4a2c2a;
   font-family:'Segoe UI', sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
   text-align:center;
   overflow:hidden;
+}
+
+/* center */
+.center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:90%;
+}
+
+/* start screen */
+.start h1 {
+  color:#ff4d6d;
+}
+
+.btn {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff4d6d;
+  color:white;
 }
 
 /* text */
@@ -18,16 +37,7 @@ body {
   line-height:1.7;
   opacity:0;
   transition:1s;
-}
-
-/* glow */
-.glow {
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow:0 0 10px pink; }
-  to { text-shadow:0 0 30px gold; }
+  margin:auto;
 }
 
 /* album */
@@ -38,7 +48,7 @@ body {
 }
 
 .album h2 {
-  color:gold;
+  color:#ff4d6d;
 }
 
 /* gallery */
@@ -53,11 +63,6 @@ body {
   height:90px;
   object-fit:cover;
   border-radius:10px;
-  transition:0.3s;
-}
-
-.gallery img:hover {
-  transform:scale(1.1);
 }
 
 /* viewer */
@@ -67,7 +72,7 @@ body {
   left:0;
   width:100%;
   height:100%;
-  background:black;
+  background:white;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -77,18 +82,6 @@ body {
   width:90%;
   max-width:400px;
   border-radius:15px;
-}
-
-/* floating hearts */
-.heart {
-  position:absolute;
-  font-size:20px;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from { transform:translateY(100vh); opacity:1; }
-  to { transform:translateY(-10vh); opacity:0; }
 }
 
 /* hidden */
