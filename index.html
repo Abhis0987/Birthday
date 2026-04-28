@@ -1,78 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baacha ❤️</title>
 
-const textDiv = document.getElementById("text");
-const album = document.getElementById("album");
+<link rel="stylesheet" href="style.css?v=4">
+</head>
 
-// force hide album initially (fix bug)
-album.classList.add("hidden");
+<body>
 
-const lines = [
-`To the most beautiful part of my life 💖`,
-`With you, there’s a quiet kind of happiness I never knew I was missing—soft, steady, and deeply real ❤️`,
-`Your kindness and strength changed the way I see life ✨`,
-`With you, even silence feels complete 💫`,
-`Here’s to us—growing together and building a life full of love 🤍`,
-`Your love has touched my soul… 😘`,
-`कहते हैं प्यार शब्दों में नहीं उतरता… ❤️`,
-`ताकि तुम्हें बता सकूं कि तुम मेरे लिए कितनी कीमती हो 💖`,
-`तुम सिर्फ मेरी खुशी नहीं हो… तुम मेरा सुकून हो 🌸`,
-`तुम्हारे साथ हर सपना थोड़ा और करीब ❤️`,
-`मैं तुम्हारे साथ हूँ… आज नहीं, हमेशा 🫂❤️`,
-`Tumhe life ki har khushi mile, baccha 😘`,
-`I love you… beyond everything 💖`,
-`Forever yours, always 💫`
-];
+<!-- START SCREEN -->
+<div id="start" class="center start">
+  <h1>🎂 24th Birthday Surprise 🎂</h1>
+  <p id="countdown"></p>
+  <button onclick="startExperience()" class="btn">Tap to unlock 😏</button>
+</div>
 
-let i = 0;
+<!-- TEXT -->
+<div id="text" class="text hidden"></div>
 
-function showNext(){
-  if(i >= lines.length){
-    createHearts();
-    album.classList.remove("hidden");
-    return;
-  }
+<!-- ALBUM -->
+<div id="album" class="hidden album">
+  <h2>Our Memories ❤️</h2>
+  <div class="gallery">
+    <img src="assets/img1.jpg" onclick="openImg(this.src)">
+    <img src="assets/img2.jpg" onclick="openImg(this.src)">
+    <img src="assets/img3.jpg" onclick="openImg(this.src)">
+  </div>
+</div>
 
-  textDiv.style.opacity = 0;
+<!-- FULL IMAGE VIEW -->
+<div id="viewer" class="viewer hidden" onclick="closeImg()">
+  <img id="fullImg">
+</div>
 
-  setTimeout(()=>{
-    textDiv.innerHTML = lines[i];
-    textDiv.style.opacity = 1;
+<!-- SCRIPT (IMPORTANT: defer added) -->
+<script src="script.js?v=4" defer></script>
 
-    if(i === lines.length - 1){
-      textDiv.classList.add("glow");
-    }
-
-    i++;
-    setTimeout(showNext, 3200);
-  },800);
-}
-
-showNext();
-
-/* hearts */
-function createHearts(){
-  setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.innerHTML = ["❤️","💖","💗","💓","💞"][Math.floor(Math.random()*5)];
-    heart.classList.add("heart");
-
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.color = ["pink","red","gold","violet"][Math.floor(Math.random()*4)];
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),6000);
-  },300);
-}
-
-/* album viewer */
-window.openImg = function(src){
-  document.getElementById("viewer").classList.remove("hidden");
-  document.getElementById("fullImg").src = src;
-}
-
-window.closeImg = function(){
-  document.getElementById("viewer").classList.add("hidden");
-}
-
-});
+</body>
+</html>
