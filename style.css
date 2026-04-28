@@ -1,9 +1,7 @@
 body {
   margin:0;
   background: linear-gradient(135deg,#ffe4ec,#ffd6e0,#fff0f5);
-  color:#4a2c2a;
   font-family:'Segoe UI', sans-serif;
-  text-align:center;
   overflow:hidden;
 }
 
@@ -13,16 +11,12 @@ body {
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
+  text-align:center;
   width:90%;
 }
 
-/* start screen */
-.start h1 {
-  color:#ff4d6d;
-}
-
+/* button */
 .btn {
-  margin-top:20px;
   padding:12px 25px;
   border:none;
   border-radius:25px;
@@ -30,39 +24,65 @@ body {
   color:white;
 }
 
-/* text */
+/* text (IMPORTANT - above emojis) */
 .text {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   max-width:90%;
   font-size:1.2rem;
   line-height:1.7;
-  opacity:0;
-  transition:1s;
-  margin:auto;
+  color:#4a2c2a;
+  text-align:center;
+  z-index:10;
+  background: rgba(255,255,255,0.6);
+  padding:20px;
+  border-radius:15px;
+}
+
+/* decorations */
+#decorations {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+/* floating emoji */
+.float {
+  position:absolute;
+  font-size:28px;
+  animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform:translateY(100vh); }
+  to { transform:translateY(-10vh); }
+}
+
+/* cake */
+#cake {
+  font-size:80px;
+  cursor:pointer;
 }
 
 /* album */
 .album {
   position:absolute;
-  bottom:20px;
+  bottom:10px;
   width:100%;
-}
-
-.album h2 {
-  color:#ff4d6d;
-}
-
-/* gallery */
-.gallery {
-  display:flex;
-  justify-content:center;
-  gap:10px;
+  text-align:center;
+  z-index:10;
 }
 
 .gallery img {
-  width:90px;
-  height:90px;
-  object-fit:cover;
+  width:80px;
+  height:80px;
   border-radius:10px;
+  margin:5px;
 }
 
 /* viewer */
@@ -80,8 +100,6 @@ body {
 
 .viewer img {
   width:90%;
-  max-width:400px;
-  border-radius:15px;
 }
 
 /* hidden */
