@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baacha ❤️</title>
 
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
 
-<!-- START SCREEN -->
-<div id="start" class="center start">
+<!-- Decorations -->
+<div id="decorations"></div>
+
+<!-- START -->
+<div id="start" class="center">
   <h1>🎂 24th Birthday Surprise 🎂</h1>
   <p id="countdown"></p>
   <button onclick="startExperience()" class="btn">Tap to unlock 😏</button>
+</div>
+
+<!-- CAKE -->
+<div id="cakeBox" class="center hidden">
+  <div id="cake" onclick="cutCake()">🎂</div>
+  <p>Cut the cake 🎉</p>
 </div>
 
 <!-- TEXT -->
@@ -24,19 +33,18 @@
 <div id="album" class="hidden album">
   <h2>Our Memories ❤️</h2>
   <div class="gallery">
-    <img src="assets/img1.jpg" onclick="openImg(this.src)">
-    <img src="assets/img2.jpg" onclick="openImg(this.src)">
-    <img src="assets/img3.jpg" onclick="openImg(this.src)">
+    <img src="img1.jpg" onclick="openImg(this.src)">
+    <img src="img2.jpg" onclick="openImg(this.src)">
+    <img src="img3.jpg" onclick="openImg(this.src)">
   </div>
 </div>
 
-<!-- FULL IMAGE VIEW -->
+<!-- VIEWER -->
 <div id="viewer" class="viewer hidden" onclick="closeImg()">
   <img id="fullImg">
 </div>
 
-<!-- SCRIPT (IMPORTANT: defer added) -->
-<script src="script.js?v=4" defer></script>
+<script src="script.js?v=5" defer></script>
 
 </body>
 </html>
