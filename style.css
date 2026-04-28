@@ -1,0 +1,83 @@
+body {
+  margin:0;
+  font-family:-apple-system, sans-serif;
+  background: linear-gradient(135deg,#000,#2b0f1a);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* center everything */
+.center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:90%;
+  max-width:400px;
+}
+
+/* envelope */
+.envelope {
+  background: rgba(20,20,20,0.9);
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(255,192,203,0.2);
+  cursor:pointer;
+}
+
+/* letter */
+.letter {
+  background: rgba(0,0,0,0.6);
+  padding:20px;
+  border-radius:15px;
+  line-height:1.5;
+}
+
+/* button */
+.btn {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background: linear-gradient(45deg,#ff4d6d,gold);
+  color:white;
+}
+
+/* hidden */
+.hidden {
+  display:none;
+}
+
+/* memories */
+#memories img {
+  width:100%;
+  border-radius:15px;
+  box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+/* ending */
+#ending h1 {
+  color:gold;
+}
+
+/* buttons */
+.actions {
+  margin-top:20px;
+}
+
+.actions button {
+  margin:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+}
+
+.yes {
+  background: gold;
+}
+
+.no {
+  background: #444;
+  position:relative;
+}
