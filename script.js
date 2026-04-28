@@ -1,97 +1,78 @@
-body {
-  margin:0;
-  background:black;
-  color:white;
-  font-family:'Segoe UI', sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
-  overflow:hidden;
+document.addEventListener("DOMContentLoaded", function () {
+
+const textDiv = document.getElementById("text");
+const album = document.getElementById("album");
+
+// force hide album initially (fix bug)
+album.classList.add("hidden");
+
+const lines = [
+`To the most beautiful part of my life 💖`,
+`With you, there’s a quiet kind of happiness I never knew I was missing—soft, steady, and deeply real ❤️`,
+`Your kindness and strength changed the way I see life ✨`,
+`With you, even silence feels complete 💫`,
+`Here’s to us—growing together and building a life full of love 🤍`,
+`Your love has touched my soul… 😘`,
+`कहते हैं प्यार शब्दों में नहीं उतरता… ❤️`,
+`ताकि तुम्हें बता सकूं कि तुम मेरे लिए कितनी कीमती हो 💖`,
+`तुम सिर्फ मेरी खुशी नहीं हो… तुम मेरा सुकून हो 🌸`,
+`तुम्हारे साथ हर सपना थोड़ा और करीब ❤️`,
+`मैं तुम्हारे साथ हूँ… आज नहीं, हमेशा 🫂❤️`,
+`Tumhe life ki har khushi mile, baccha 😘`,
+`I love you… beyond everything 💖`,
+`Forever yours, always 💫`
+];
+
+let i = 0;
+
+function showNext(){
+  if(i >= lines.length){
+    createHearts();
+    album.classList.remove("hidden");
+    return;
+  }
+
+  textDiv.style.opacity = 0;
+
+  setTimeout(()=>{
+    textDiv.innerHTML = lines[i];
+    textDiv.style.opacity = 1;
+
+    if(i === lines.length - 1){
+      textDiv.classList.add("glow");
+    }
+
+    i++;
+    setTimeout(showNext, 3200);
+  },800);
 }
 
-/* text */
-.text {
-  max-width:90%;
-  font-size:1.2rem;
-  line-height:1.7;
-  opacity:0;
-  transition:1s;
+showNext();
+
+/* hearts */
+function createHearts(){
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.innerHTML = ["❤️","💖","💗","💓","💞"][Math.floor(Math.random()*5)];
+    heart.classList.add("heart");
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.color = ["pink","red","gold","violet"][Math.floor(Math.random()*4)];
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),6000);
+  },300);
 }
 
-/* glow */
-.glow {
-  animation: glow 2s infinite alternate;
+/* album viewer */
+window.openImg = function(src){
+  document.getElementById("viewer").classList.remove("hidden");
+  document.getElementById("fullImg").src = src;
 }
 
-@keyframes glow {
-  from { text-shadow:0 0 10px pink; }
-  to { text-shadow:0 0 30px gold; }
+window.closeImg = function(){
+  document.getElementById("viewer").classList.add("hidden");
 }
 
-/* album */
-.album {
-  position:absolute;
-  bottom:20px;
-  width:100%;
-}
-
-.album h2 {
-  color:gold;
-}
-
-/* gallery */
-.gallery {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-
-.gallery img {
-  width:90px;
-  height:90px;
-  object-fit:cover;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-.gallery img:hover {
-  transform:scale(1.1);
-}
-
-/* viewer */
-.viewer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.viewer img {
-  width:90%;
-  max-width:400px;
-  border-radius:15px;
-}
-
-/* floating hearts */
-.heart {
-  position:absolute;
-  font-size:20px;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from { transform:translateY(100vh); opacity:1; }
-  to { transform:translateY(-10vh); opacity:0; }
-}
-
-/* hidden */
-.hidden {
-  display:none;
-}
+});
